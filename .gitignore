@@ -1,0 +1,9 @@
+# Temporary directory monitoring files
+directory-info.last
+directory-info.new
+
+# Quarantined files
+malicious_dir/*
+
+# Test files
+test_dir/*
