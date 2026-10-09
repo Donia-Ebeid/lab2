@@ -1,60 +1,25 @@
 # Simple Antivirus Daemon
+## Operating Systems – Lab Assignment 2
 
-## Description
+## 1. Project Description
+This project is a simple antivirus daemon written in Bash. It monitors a specified directory, detects potentially malicious files, and moves them to a quarantine directory.
 
-This project is a simple antivirus daemon written in Bash.
+## 2. Project Objectives
+- Practice Bash scripting.
+- Monitor directory changes.
+- Detect potentially malicious files.
+- Quarantine suspicious files.
+- Use a Makefile to manage project commands.
 
-The program monitors a directory and checks files for malicious files.
+## 3. Project Files
+- `antivirus.sh` – Scans and monitors files.
+- `restore.sh` – Restores or deletes quarantined files.
+- `Makefile` – Provides commands to prepare, run, restore, and clean the project.
+- `malicious_dir/` – Stores quarantined files.
+- `test_dir/` – Directory used for testing.
 
-## How to Run
+## 4. How to Run
+Run the following command from the project directory:
 
-Use the following command:
-
+```bash
 ./antivirus.sh dir malicious_dir interval-secs
-
-Example:
-
-./antivirus.sh test_dir malicious_dir 5
-
-## Malicious Files
-
-A file is considered malicious if:
-
-- Its extension is `.exe`
-- Its extension is `.bat`
-- Its extension is `.vbs`
-- Its extension is `.scr`
-- Its extension is `.ps1`
-- Its contents contain `virus`, `trojan`, `malware`, or `ransomware`
-
-When a malicious file is found, it is copied to `malicious_dir` and deleted from the monitored directory.
-
-## Restore
-
-The restore program can be started using:
-
-./restore.sh
-
-It allows the user to:
-
-1. Restore a file
-2. Permanently delete a file
-3. Leave the file as-is
-
-## Makefile
-
-The Makefile provides the following commands:
-
-make prepare
-make run
-make restore
-make clean
-
-## Project Files
-
-- `antivirus.sh` - Main antivirus program
-- `restore.sh` - Restores or deletes quarantined files
-- `Makefile` - Provides commands for the project
-- `README.md` - Project documentation
-- `malicious_dir` - Directory for quarantined files
-- `test_dir` - Directory used for testing
