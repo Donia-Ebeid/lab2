@@ -18,7 +18,7 @@ scan_file() {
             ;;
     esac
 
-    if grep -Eqi 'virus|trojan|malware|ransomware' "$file"; then
+    if grep -Eqi 'virus|trojan|malware|ransomware|worm' "$file"; then
         malicious=true
     fi
 
@@ -30,14 +30,16 @@ scan_file() {
 }
 
 if [ ! -f "directory-info.last" ]; then
-    ls -l "$DIR" > directory-info.last
+    
 
-    for file in "$DIR"/*
+        for file in "$DIR"/*
     do
         if [ -f "$file" ]; then
             scan_file "$file"
         fi
     done
+
+    ls -l "$DIR" > directory-info.last
 fi
 
 while true
@@ -57,6 +59,7 @@ then
         fi
     done
 
-    cp directory-info.new directory-info.last
-fi
+            ls -l "$DIR" > directory-info.last
+    fi
 done
+
